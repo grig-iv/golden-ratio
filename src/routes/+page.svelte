@@ -1,20 +1,32 @@
-<script>
-    import logo from "$lib/assets/gr-logo.png";
+<script lang="ts">
+    import MobileMenu from "./MobileMenu.svelte";
+    import Hamburger from "./Hamburger.svelte";
+    import logo_text from "$lib/assets/logo-text-25.png";
+
+    let menu: MobileMenu;
 </script>
 
-<div class="flex items-center justify-between">
-    <div class="flex-none m-2">
-        <div class="w-7 bg-black h-1 rounded" />
-        <div class="my-1 w-7 bg-black h-1 rounded" />
-        <div class="w-7 bg-black h-1 rounded" />
+<!-- Header -->
+<div
+    class="grid grid-cols-3 place-items-center sticky top-0 bg-white w-full py-2 px-4 drop-shadow-sm z-20"
+>
+    <div class="justify-self-start">
+        <Hamburger on:click={menu.toggle} />
     </div>
 
-    <div class="text-center tracking-widest">
-        <span class="text-xs">
-        КЛИНИКА СТОМАТОЛОГИ
-        </span>
-        <p class="bg-accent">ЗОЛОТОЕ СЕЧЕНИЕ</p>
+    <div class="w-48">
+        <img src={logo_text} alt="download icon" />
+    </div>
+
+    <div class="justify-self-end">
+        <i
+            class="flex-none mx-1 text-xl fa-solid fa-phone hover:text-accent hover:fa-regular"
+        />
     </div>
 </div>
 
-<img src={logo} alt="download icon" />
+<MobileMenu bind:this={menu} />
+
+<div class="flex items-center justify-between font-serif" />
+
+<div class="w-4 h-screen border-purple-500">content</div>
