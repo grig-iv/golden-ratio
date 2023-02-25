@@ -1,7 +1,15 @@
 <script lang="ts">
     import MobileMenu from "./MobileMenu.svelte";
     import Hamburger from "./Hamburger.svelte";
+    import Contacts from "./Contacts.svelte";
+    import Services from "./Services.svelte";
+    import Showcase from "./Showcase.svelte";
+    import Stuff from "./Stuff.svelte";
+    import Map from "./Map.svelte";
+    import Review from "./Review.svelte";
+    import { phone } from "$lib/contacts";
     import logo_text from "$lib/assets/logo-text-25.png";
+    import logo_icon from "$lib/assets/logo-icon-50.png";
 
     let menu: MobileMenu;
 </script>
@@ -19,14 +27,48 @@
     </div>
 
     <div class="justify-self-end">
-        <i
-            class="flex-none mx-1 text-xl fa-solid fa-phone hover:text-accent hover:fa-regular"
-        />
+        <a href="tel:{phone}">
+            <i class="text-xl fa-solid fa-phone" />
+        </a>
     </div>
 </div>
 
 <MobileMenu bind:this={menu} />
 
-<div class="flex items-center justify-between font-serif" />
+<div class="w-64 m-auto">
+    <img src={logo_icon} alt="download icon" />
+</div>
 
-<div class="w-4 h-screen border-purple-500">content</div>
+<div class="mt-4">
+    <Contacts />
+</div>
+
+<div class="section">
+    <Services />
+</div>
+
+<div class="section">
+    <Showcase />
+</div>
+
+<div class="section">
+    <Stuff />
+</div>
+
+<div class="section">
+    <Map />
+</div>
+
+<div class="section">
+    <Review />
+</div>
+
+<style lang="scss">
+    .section {
+        margin-top: 4rem;
+
+        &:first-child {
+            margin-top: -10rem;
+        }
+    }
+</style>
