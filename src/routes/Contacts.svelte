@@ -6,18 +6,22 @@
     Контакты
 </div>
 
-<div class="my-1 mx-5 flex flex-col">
+<div id="contactsTable" class="my-1 mx-5">
+    <i class="fa-solid fa-phone" />
+    <a href="tel:{phone}" class="text-accent_dark">
+        {phone}
+    </a>
+
+    <i class="fa-solid fa-location-dot" />
+    <a href="#map" class="text-accent_dark"> Невский проспект, 154 </a>
+
+    <i class="fa-solid fa-clock" />
     <p>
-        <i class="fa-solid fa-phone" />
-        <a href="tel:{phone}" class="text-accent_dark">
-            {phone}
-        </a>
-    </p>
-    <p><i class="fa-solid fa-clock" /> Вт-пт 11:00–20:00; Сб 11:00–16:00</p>
-    <p><i class="fa-solid fa-location-dot" /> 
-        <a href="#map" class="text-accent_dark">
-        Невский проспект, 154
-        </a>
+        Вт-пт 11:00–20:00;
+        <br />
+        Чт: Операционный день;
+        <br />
+        Сб 11:00–16:00;
     </p>
 </div>
 
@@ -26,12 +30,20 @@
         scroll-margin-block-start: 40px;
     }
 
+    #contactsTable {
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        place-content: center;
+    }
+
     p {
         margin-top: 0.25rem;
 
         i {
             text-align: center;
             width: 1.25rem;
+            margin-right: 0.25rem;
         }
     }
 </style>

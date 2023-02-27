@@ -10,8 +10,6 @@
     import { phone } from "$lib/contacts";
     import logo_text from "$lib/assets/logo-text-25.png";
     import logo_icon from "$lib/assets/logo-icon-50.png";
-
-    let menu: MobileMenu;
 </script>
 
 <!-- Header -->
@@ -19,7 +17,7 @@
     class="grid grid-cols-3 place-items-center sticky top-0 bg-white w-full py-2 px-4 drop-shadow-sm z-20"
 >
     <div class="justify-self-start">
-        <Hamburger on:click={menu.toggle} />
+        <Hamburger />
     </div>
 
     <div class="w-48">
@@ -33,14 +31,10 @@
     </div>
 </div>
 
-<MobileMenu bind:this={menu} />
+<MobileMenu />
 
 <div class="w-64 m-auto">
     <img src={logo_icon} alt="download icon" />
-</div>
-
-<div class="mt-4">
-    <Contacts />
 </div>
 
 <div class="section">

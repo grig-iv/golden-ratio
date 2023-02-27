@@ -1,7 +1,9 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
+    import { controller } from "./menuController";
 
-    let visible: Boolean;
+    let visible: boolean;
+    controller.subscribe((x: boolean) => (visible = x));
 
     let items = [
         {
@@ -22,36 +24,32 @@
         },
         {
             text: "Как добраться",
-            link: "#map"
+            link: "#map",
         },
         {
             text: "Отзовы",
             link: "#review",
         },
     ];
-
-    export function toggle() {
-        visible = !visible;
-    }
-
-    export function isViseble(): Boolean {
-        return visible;
-    }
 </script>
 
 {#if visible}
     <div
-        class="fixed flex w-full z-10 pb-4 bg-stone-200"
+        class="fixed flex flex-col w-full h-full z-10 pb-4"
         transition:fly={{ y: -1000, duration: 300 }}
     >
-        <div class="mx-4 w-full">
+        <div class="px-4 w-full bg-stone-200">
             <ul class="divide-y divide-slate-400 divide-dashed">
                 {#each items as item}
                     <li class="py-3 pl-2 font-semibold uppercase">
-                        <a href={item.link} on:click={() => visible = false}>{item.text}</a>
+                        <a href={item.link} on:click={() => controller.close()}
+                            >{item.text}</a
+                        >
                     </li>
                 {/each}
             </ul>
         </div>
+
+        <div class="h-full w-full" on:click={() => controller.close()} />
     </div>
 {/if}

@@ -3,7 +3,7 @@
 </script>
 
 <div id="map" class="ml-4 mb-4 text-3xl font-semibold scroll-mt-72">
-    Карта
+    Контакты
 </div>
 
 <div class="my-1 mx-5 flex flex-col">

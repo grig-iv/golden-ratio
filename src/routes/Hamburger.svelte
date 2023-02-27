@@ -1,8 +1,12 @@
 <script lang="ts">
-    let open: Boolean;
+    import {controller} from './menuController'
+
+    let open: boolean;
+
+    controller.subscribe(x => open = x);
 </script>
 
-<button on:click on:click={() => (open = !open)}>
+<button on:click={() => controller.toggle()}>
     <div id="hamburger" class:open>
         <div class="top-0" />
         <div class="top-1/2" />
