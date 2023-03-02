@@ -1,68 +1,65 @@
 <script lang="ts">
-    import MobileMenu from "./MobileMenu.svelte";
-    import Hamburger from "./Hamburger.svelte";
-    import Contacts from "./Contacts.svelte";
-    import Services from "./Services.svelte";
-    import Showcase from "./Showcase.svelte";
-    import Stuff from "./Stuff.svelte";
-    import Map from "./Map.svelte";
-    import Review from "./Review.svelte";
+    import Contacts from "./dev/Contacts.svelte";
     import { phone } from "$lib/contacts";
     import logo_text from "$lib/assets/logo-text-25.png";
     import logo_icon from "$lib/assets/logo-icon-50.png";
 </script>
 
-<!-- Header -->
-<div
-    class="grid grid-cols-3 place-items-center sticky top-0 bg-white w-full py-2 px-4 drop-shadow-sm z-20"
->
-    <div class="justify-self-start">
-        <Hamburger />
+<div class="flex flex-col h-screen">
+    <div class="py-2 bg-gray-400">
+        <div class="mx-auto text-2xl font-bold text-center text-gray-800">
+            🚧 Сайт в разработке 🚧
+        </div>
     </div>
 
-    <div class="w-48">
-        <img src={logo_text} alt="download icon" />
+    <div class="self-center mt-5 mx-5">
+        <div class="flex justify-center items-center">
+            <div class="w-40">
+                <img src={logo_icon} alt="" />
+            </div>
+            <div class="ml-2">
+                <img src={logo_text} alt="" />
+            </div>
+        </div>
+
+        <div class="flex flex-col mt-4">
+            <div class="flex flex-col sm:text-xl">
+                <p>
+                    <i class="fa-solid fa-phone" />
+                    <a href="tel:{phone}" class="text-accent_dark">
+                        {phone}
+                    </a>
+                </p>
+                <div class="my-1">
+                    <i class="fa-solid fa-clock" /> Вт-пт 11:00–20:00; Сб 11:00–16:00
+                </div>
+                <p>
+                    <i class="fa-solid fa-location-dot" /> Невский проспект, 154
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="justify-self-end">
-        <a href="tel:{phone}">
-            <i class="text-xl fa-solid fa-phone" />
-        </a>
+    <div class="grow mt-10 lg:mx-auto lg:w-2/3 lg:h-96">
+        <iframe
+            title="map"
+            class="w-full h-full lg:h-96"
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3a8c1a4971cf51253ee5785db971a64399f03f75adac4a5b9bb50acc70ebc4bc75&amp;source=constructor"
+            frameborder="0"
+        />
     </div>
-</div>
-
-<MobileMenu />
-
-<div class="w-64 m-auto">
-    <img src={logo_icon} alt="download icon" />
-</div>
-
-<div class="section">
-    <Services />
-</div>
-
-<div class="section">
-    <Showcase />
-</div>
-
-<div class="section">
-    <Stuff />
-</div>
-
-<div class="section">
-    <Map />
-</div>
-
-<div class="section">
-    <Review />
 </div>
 
 <style lang="scss">
-    .section {
-        margin-top: 4rem;
-
-        &:first-child {
-            margin-top: -10rem;
+    p {
+        margin-top: 0.25rem;
+        i {
+            text-align: center;
+            width: 1.25rem;
         }
+    }
+
+    #contacts {
+        scroll-margin-block-start: 40px;
     }
 </style>
