@@ -3,6 +3,15 @@
     import { phone } from "$lib/contacts";
     import logo_text from "$lib/assets/logo-text-25.png";
     import logo_icon from "$lib/assets/logo-icon-50.png";
+
+    import { onMount } from "svelte";
+
+    let isMobile = false;
+    onMount(() => {
+        isMobile =
+            (navigator.userAgent.match(/Android/i) ||
+                navigator.userAgent.match(/iPhone/i)) !== null;
+    });
 </script>
 
 <div class="flex flex-col h-screen">
@@ -26,13 +35,17 @@
             <div class="flex flex-col sm:text-xl">
                 <p>
                     <i class="fa-solid fa-phone" />
-                    <a href="tel:{phone}" class="text-accent_dark">
+                    {#if isMobile}
+                        <a href="tel:{phone}" class="text-accent_dark">
+                            {phone}
+                        </a>
+                    {:else}
                         {phone}
-                    </a>
+                    {/if}
                 </p>
-                <div class="my-1">
+                <p>
                     <i class="fa-solid fa-clock" /> Вт-пт 11:00–20:00; Сб 11:00–16:00
-                </div>
+                </p>
                 <p>
                     <i class="fa-solid fa-location-dot" /> Невский проспект, 154
                 </p>
@@ -52,14 +65,11 @@
 
 <style lang="scss">
     p {
-        margin-top: 0.25rem;
         i {
+            margin-top: 0.75rem;
             text-align: center;
             width: 1.25rem;
+            margin-right: 0.5rem;
         }
-    }
-
-    #contacts {
-        scroll-margin-block-start: 40px;
     }
 </style>
