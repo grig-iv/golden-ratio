@@ -15,9 +15,11 @@
 </script>
 
 <div class="flex flex-col h-screen">
-    <div class="py-2 bg-gray-400">
-        <div class="mx-auto text-2xl font-bold text-center text-gray-800">
-            🚧 Сайт в разработке 🚧
+    <div class="py-2 bg-gray-300">
+        <div class="mx-auto text-2xl font-bold text-center text-gray-700">
+            🚧 
+          <span class="mx-2">Сайт в разработке</span>  
+            🚧
         </div>
     </div>
 
