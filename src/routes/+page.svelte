@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Contacts from "./dev/Contacts.svelte";
     import { phone } from "$lib/contacts";
     import logo_text from "$lib/assets/logo-text-25.png";
     import logo_icon from "$lib/assets/logo-icon-50.png";
